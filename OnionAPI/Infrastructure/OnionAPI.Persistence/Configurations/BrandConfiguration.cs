@@ -12,7 +12,7 @@ namespace OnionAPI.Persistence.Configurations
             builder.Property(b => b.Name).HasMaxLength(256);
 
             //Creating faker instance to fill out properties using Bogus.
-            Faker faker = new("tr");
+            Faker faker = new("en");
 
             builder.HasData(
                 new Brand()
