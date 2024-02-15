@@ -7,6 +7,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+#region Development and Production environment segregation
+var environmentName = builder.Environment;
+builder.Configuration
+    .SetBasePath(environmentName.ContentRootPath)
+    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile($"appsettings.{environmentName.EnvironmentName}.json", optional: true);
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
