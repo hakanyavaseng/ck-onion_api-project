@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnionAPI.Domain\OnionAPI.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

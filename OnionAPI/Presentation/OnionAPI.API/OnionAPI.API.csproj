@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\OnionAPI.Application\OnionAPI.Application.csproj" />
+  </ItemGroup>
+
 </Project>
