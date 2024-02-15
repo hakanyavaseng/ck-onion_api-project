@@ -9,7 +9,7 @@ namespace OnionAPI.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Detail> builder)
         {
-            Faker faker = new("tr");
+            Faker faker = new("en");
 
             builder.HasData(
                 new Detail
