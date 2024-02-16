@@ -16,12 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\Core\OnionAPI.Application\OnionAPI.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\OnionAPI.Persistence\OnionAPI.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\OnionAPI.Application\OnionAPI.Application.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\OnionAPI.Persistence\OnionAPI.Persistence.csproj" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
