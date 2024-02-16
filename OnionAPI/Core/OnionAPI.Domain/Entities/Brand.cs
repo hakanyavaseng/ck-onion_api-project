@@ -10,9 +10,6 @@ namespace OnionAPI.Domain.Entities
         {
             
         }
-        public Brand(string name)
-        {
-            Name = name;
-        }
+
     }
 }
