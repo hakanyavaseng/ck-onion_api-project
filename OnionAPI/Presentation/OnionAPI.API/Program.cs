@@ -1,5 +1,6 @@
 using OnionAPI.Application;
 using OnionAPI.Persistence;
+using OnionAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Configuration
 #region Add layers
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
 #endregion
 
 
