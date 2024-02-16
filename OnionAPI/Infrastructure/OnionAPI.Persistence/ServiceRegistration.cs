@@ -17,6 +17,7 @@ namespace OnionAPI.Persistence
 
             //Adding repositories to IoC
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
         }
 
     }
