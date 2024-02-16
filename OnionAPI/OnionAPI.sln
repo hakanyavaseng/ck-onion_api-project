@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{79ED5A10-CD8C-4CDF-AB93-8C3B44564F26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.Application", "Core\OnionAPI.Application\OnionAPI.Application.csproj", "{3517C386-D9F8-48F9-B637-0032087FAE37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Application", "Core\OnionAPI.Application\OnionAPI.Application.csproj", "{3517C386-D9F8-48F9-B637-0032087FAE37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.Domain", "Core\OnionAPI.Domain\OnionAPI.Domain.csproj", "{BAAD8845-C86F-48C8-9C78-F0B5C9C30163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Domain", "Core\OnionAPI.Domain\OnionAPI.Domain.csproj", "{BAAD8845-C86F-48C8-9C78-F0B5C9C30163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.Infrastructure", "Infrastructure\OnionAPI.Infrastructure\OnionAPI.Infrastructure.csproj", "{81A4C6AB-00C0-4B55-8312-603BC167BEAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Infrastructure", "Infrastructure\OnionAPI.Infrastructure\OnionAPI.Infrastructure.csproj", "{81A4C6AB-00C0-4B55-8312-603BC167BEAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.Persistence", "Infrastructure\OnionAPI.Persistence\OnionAPI.Persistence.csproj", "{3E803567-238C-437B-AEDA-853692E433A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Persistence", "Infrastructure\OnionAPI.Persistence\OnionAPI.Persistence.csproj", "{3E803567-238C-437B-AEDA-853692E433A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.API", "Presentation\OnionAPI.API\OnionAPI.API.csproj", "{97B9B653-0CB6-4A30-8B60-AE6EA590C891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.API", "Presentation\OnionAPI.API\OnionAPI.API.csproj", "{97B9B653-0CB6-4A30-8B60-AE6EA590C891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
