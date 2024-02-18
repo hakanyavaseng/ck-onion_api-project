@@ -6,7 +6,7 @@ using OnionAPI.Domain.Entities;
 
 namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
     {
         private readonly ProductRules productRules = new();
 
@@ -18,7 +18,7 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
 
         public IUnitOfWork _unitOfWork { get; }
 
-        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             Product isExistProduct = await _unitOfWork.GetReadRepository<Product>().GetAsync(p => p.Title == request.Title);
             
@@ -40,9 +40,11 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
                         CategoryId = categoryId
                     });
                 await _unitOfWork.SaveAsync();  // Save changes on ProductCategory
+                return new CreateProductCommandResponse { Message = "Ekleme basarili!" };
             }
 
-            return Unit.Value;
+            return new CreateProductCommandResponse { Message = "Ekleme basarisiz!" };
+
         }
     }
 }

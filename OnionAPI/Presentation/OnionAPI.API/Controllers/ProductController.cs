@@ -27,8 +27,8 @@ namespace OnionAPI.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductCommandRequest request)
         {
-            await _mediator.Send(request);
-            return Ok();
+            CreateProductCommandResponse response =  await _mediator.Send(request);
+            return Ok(response);
         }
 
         [HttpPut]
@@ -41,7 +41,7 @@ namespace OnionAPI.API.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
         {
-             await _mediator.Send(request);
+            await _mediator.Send(request);
             return Ok();
         }
 

@@ -2,7 +2,7 @@
 
 namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandRequest : IRequest<Unit>
+    public class CreateProductCommandRequest : IRequest<CreateProductCommandResponse>
     {
         public string Title { get; set; }
         public string Description { get; set; }
