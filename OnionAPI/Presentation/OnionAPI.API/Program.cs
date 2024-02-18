@@ -27,7 +27,6 @@ builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 #endregion
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
