@@ -41,7 +41,7 @@ namespace OnionAPI.API.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
         {
-            await _mediator.Send(request);
+             await _mediator.Send(request);
             return Ok();
         }
 
