@@ -4,7 +4,7 @@ using OnionAPI.Domain.Entities;
 
 namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
     {
         public CreateProductCommandHandler(IUnitOfWork unitOfWork)
         {
@@ -13,7 +13,7 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
 
         public IUnitOfWork _unitOfWork { get; }
 
-        public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             Product product = new(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
 
@@ -31,6 +31,7 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
                 await _unitOfWork.SaveAsync();  // Save changes on ProductCategory
             }
 
+            return Unit.Value;
         }
     }
 }
