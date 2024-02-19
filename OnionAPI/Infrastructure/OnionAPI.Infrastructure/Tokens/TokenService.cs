@@ -5,6 +5,7 @@ using OnionAPI.Application.Interfaces.Tokens;
 using OnionAPI.Domain.Entities.Identity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace OnionAPI.Infrastructure.Tokens
@@ -47,15 +48,34 @@ namespace OnionAPI.Infrastructure.Tokens
 
             return token;
         }
-
         public string GenerateRefreshToken()
         {
-            throw new NotImplementedException();
+            var randomNumber = new byte[64];
+            using var randomNumberGenerator = RandomNumberGenerator.Create();
+            randomNumberGenerator.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
         }
-
-        public ClaimsPrincipal? GetPrincipalFromExpiredToken()
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)
         {
-            throw new NotImplementedException();
+            TokenValidationParameters tokenValidationParameters = new()
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSettings.Secret)),
+                ValidateLifetime = true,
+            };
+
+            JwtSecurityTokenHandler tokenHandler = new();
+            ClaimsPrincipal principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
+            
+            if(securityToken is not JwtSecurityToken jwtSecurityToken 
+                || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new SecurityTokenException("Token not found!");
+            }
+
+            return principal;
         }
     }
 }
