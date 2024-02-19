@@ -30,6 +30,7 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
                 .NotEmpty()
                 .Must(categories => categories.Any())
                 .WithName("Kategoriler");
+
         }
     }
 }

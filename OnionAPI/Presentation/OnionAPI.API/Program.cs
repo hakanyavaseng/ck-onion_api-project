@@ -36,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 #region Global Exception Handler
 app.ConfigureExceptionHandlingMiddleware();
 #endregion
