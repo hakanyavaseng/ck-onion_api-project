@@ -14,6 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region HttpContextAccessor for Register and similar ops
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+#endregion
 
 #region Development and Production environment segregation
 var environmentName = builder.Environment;

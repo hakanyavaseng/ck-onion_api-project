@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OnionAPI.Application.Bases;
 using OnionAPI.Application.Features.Products.Exceptions;
 using OnionAPI.Application.Features.Products.Rules;
 using OnionAPI.Application.Interfaces.UnitOfWorks;
@@ -10,7 +11,7 @@ namespace OnionAPI.Application.Features.Products.Commands.CreateProduct
     {
         private readonly ProductRules productRules = new();
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules) 
         {
             _unitOfWork = unitOfWork;
             this.productRules = productRules;
