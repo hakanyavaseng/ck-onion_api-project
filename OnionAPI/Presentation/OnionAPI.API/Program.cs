@@ -2,6 +2,7 @@ using OnionAPI.Application;
 using OnionAPI.Persistence;
 using OnionAPI.Mapper;
 using OnionAPI.Application.Exceptions;
+using OnionAPI.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Configuration
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
+builder.Services.AddInfrastructure(builder.Configuration);
 #endregion
 
 var app = builder.Build();
