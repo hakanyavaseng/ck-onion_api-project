@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Persistence", "Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.API", "Presentation\OnionAPI.API\OnionAPI.API.csproj", "{97B9B653-0CB6-4A30-8B60-AE6EA590C891}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionAPI.Mapper", "Core\OnionAPI.Mapper\OnionAPI.Mapper.csproj", "{8CB902C2-9B72-449C-BF26-17AD34C97A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionAPI.Mapper", "Core\OnionAPI.Mapper\OnionAPI.Mapper.csproj", "{8CB902C2-9B72-449C-BF26-17AD34C97A9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
