@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using OnionAPI.Application.Features.Auth.Command.Login;
 using OnionAPI.Application.Features.Auth.Command.RefreshToken;
 using OnionAPI.Application.Features.Auth.Command.Register;
+using OnionAPI.Application.Features.Auth.Command.Revoke;
+using OnionAPI.Application.Features.Auth.Command.RevokeAll;
 
 namespace OnionAPI.API.Controllers
 {
@@ -28,7 +30,7 @@ namespace OnionAPI.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginCommandRequest loginCommandRequest)
         {
-            LoginCommandResponse loginCommandResponse =  await mediator.Send(loginCommandRequest);
+            LoginCommandResponse loginCommandResponse = await mediator.Send(loginCommandRequest);
             return StatusCode(StatusCodes.Status202Accepted, loginCommandResponse);
         }
 
@@ -38,6 +40,21 @@ namespace OnionAPI.API.Controllers
             RefreshTokenCommandResponse refreshTokenCommandResponse = await mediator.Send(refreshTokenCommandRequest);
             return StatusCode(StatusCodes.Status202Accepted, refreshTokenCommandResponse);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Revoke(RevokeCommandRequest revokeCommandRequest)
+        {
+            await mediator.Send(revokeCommandRequest);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RevokeAll()
+        {
+            await mediator.Send(new RevokeAllCommandRequest());
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
 
 
     }
