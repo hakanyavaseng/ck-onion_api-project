@@ -18,5 +18,13 @@ namespace OnionAPI.Application.Features.Auth.Rules
             if (user is null || !checkPassword) throw new EmailOrPasswordShouldNotBeInvalidException();
             return Task.CompletedTask;
         } 
+
+        public Task SessionTimeExpired(DateTime? expiryTime)
+        {
+            if (expiryTime <= DateTime.Now)
+               throw new SessionTimeExpiredException();
+            return Task.CompletedTask;
+
+        }
     }
 }

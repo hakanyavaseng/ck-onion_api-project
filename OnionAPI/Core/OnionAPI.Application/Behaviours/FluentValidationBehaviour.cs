@@ -15,7 +15,7 @@ namespace OnionAPI.Application.Behaviours
         public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             var context = new ValidationContext<TRequest>(request);
-            var failtures = validator
+            var failures = validator
                 .Select(v => v.Validate(context))
                 .SelectMany(result => result.Errors)
                 .GroupBy(x => x.ErrorMessage)
@@ -23,8 +23,8 @@ namespace OnionAPI.Application.Behaviours
                 .Where(f => f != null)
                 .ToList();
 
-            if (failtures.Any())
-                throw new ValidationException(failtures);
+            if (failures.Any())
+                throw new ValidationException(failures);
 
             return next();
         }
