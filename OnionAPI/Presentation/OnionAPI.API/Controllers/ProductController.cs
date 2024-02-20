@@ -49,6 +49,7 @@ namespace OnionAPI.API.Controllers
             return Ok();
         }
 
+        /*
         [HttpPost]
         public async Task<IActionResult> CreateBrand(CreateBrandCommandRequest request)
         {
@@ -62,7 +63,7 @@ namespace OnionAPI.API.Controllers
             var response = await _mediator.Send(new GetAllBrandsQueryRequest());
             return Ok(response);
         }
-
+        */
 
     }
 }
