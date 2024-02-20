@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OnionAPI.Application.Bases;
 using OnionAPI.Application.Behaviours;
 using OnionAPI.Application.Exceptions;
+using OnionAPI.Application.Interfaces.RedisCache;
 using System.Reflection;
 
 namespace OnionAPI.Application
@@ -25,6 +26,8 @@ namespace OnionAPI.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehaviour<,>)); // Fluent validation pipeline behaviour.
 
             services.AddRulesFromAssemblyContaining(Assembly.GetExecutingAssembly(), typeof(BaseRules)); // Call custom rule class and add to IoC
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RedisCacheBehaviour<,>)); // Add redis pipeline behavior
 
         }
 
